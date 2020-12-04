@@ -1,4 +1,12 @@
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| Command                                                                                     | Description                                                                                              |
+|---------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| docker build -t <IMAGE_NAME>  .                                                             | Build the docker image and give it the specified name. Use the current directory as the build context    |
+| docker build -t <IMAGE_NAME>  <BUILD_CONTEXT_DIRECTORY>                                     | Build the docker image and give it the specified name. Use the specified directory as the build context. |
+| docker run -d <IMAGE_NAME>                                                                  | Run container in background and print container ID                                                       |
+| docker ps                                                                                   | List containers                                                                                          |
+| docker inspect <CONTAINER_ID>                                                               | Return low-level information on Docker objects                                                           |
+| docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <CONTAINER_ID> | Get the container IP from the host                                                                       |
+| docker stop $(docker ps -q --filter ancestor=<IMAGE_NAME> )                                 | Stop the specified container                                                                             |
+| docker stop <CONTAINER_ID>                                                                  | Stop the specified container                                                                             |
+| docker rm <CONTAINER_ID>                                                                    | Remove the specified container                                                                           |
+| docker exec -it <CONTAINER_ID> bash                                                         | This will create a new Bash session in the container                                                     |
